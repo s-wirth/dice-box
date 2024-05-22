@@ -3,7 +3,7 @@ import React from 'react'
 const LogNav = () => {
   return (
     <div className='nav nav-log'>
-      Log
+      <h3>Roll Log</h3>
     </div>
   )
 }
