@@ -1,3 +1,4 @@
+/* --- ** general ** --- */
 body,html, #root {
   font: 1.2rem "Fira Sans", sans-serif;
   position: fixed;
@@ -11,12 +12,15 @@ body, #root, .app {
   height: 100%;
 }
 
+/* --- ** app ** --- */
 .app {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
+
+/* --- ** dice-box ** --- */
 
 .main-dice-box, .nav {
   height: 100%;
@@ -27,15 +31,31 @@ body, #root, .app {
   background-color: #c9cdd1;
 }
 
+/* --- ** nav general ** --- */
+
 .nav {
   flex: 1 1 auto;
   background-color: #a3a8ad;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* --- ** dice roller nav ** --- */
+
+.nav-roller {
+  display: flex;
+  flex-direction: column;
 }
 
 .dice-btn-container {
   background-color: blue;
+  flex: 3 2 auto;
 }
 
 .dice-text-container {
   background: pink;
+  flex: 3 2 auto;
 }
+
+/* --- ** log nav ** --- */

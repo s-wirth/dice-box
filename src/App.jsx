@@ -1,13 +1,13 @@
 import React from 'react'
-import DiceBox from './MainDiceBox'
-import RollerNav from './RollerNav'
 import LogNav from './LogNav'
+import DiceNav from './DiceNav'
+import MainDiceBox from './MainDiceBox'
 
 const App = () => {
   return (
     <div className='app'>
-        <RollerNav  />
-        <DiceBox/>
+        <DiceNav  />
+        <MainDiceBox/>
         <LogNav  />
     </div>
   )
