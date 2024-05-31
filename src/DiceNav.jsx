@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { rollDSix } from "./helpers/dice.js";
 
-export default function DiceNav() {
+export default function DiceNav({setResults}) {
   const [diceAmount, setDiceAmount] = useState({
     d6: 0,
   });
@@ -17,7 +17,7 @@ export default function DiceNav() {
     setRollResult({
       d6: results,
     });
-    alert(results);
+    setResults(results)
   };
 
   return (
