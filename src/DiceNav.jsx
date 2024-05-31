@@ -1,29 +1,39 @@
-import React from 'react'
-
-function getRandomInt(min, max) {
-    const minCeiled = Math.ceil(min);
-    const maxFloored = Math.floor(max);
-    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
-}
-
-function rollDSix(n) {
-    return getRandomInt(1,6)
-}
-
+import React from "react";
+import { useState } from "react";
+import { rollDSix } from "./helpers/dice.js";
 
 export default function DiceNav() {
-    const rollDice = (e) => {
-        e.preventDefault();
-        alert(rollDSix())
-    }
-    
+  const [diceAmount, setDiceAmount] = useState({
+    d6: 0,
+  });
+  const [rollResult, setRollResult] = useState({
+    d6: [],
+  });
+
+  const rollDice = (e) => {
+    e.preventDefault();
+    let results = [];
+    results = rollDSix(diceAmount.d6);
+    setRollResult({
+      d6: results,
+    });
+    alert(results);
+  };
+
   return (
-    <div className='nav nav-roller'>
-    <h3>Dice Select</h3>
-    <div className="dice-btn-container">
+    <div className="nav nav-roller">
+      <h3>Dice Select</h3>
+      <div className="dice-btn-container">
+        <p>D6</p>
+        {/* number value is string */}
+        <input
+          type="number"
+          value={diceAmount.d6}
+          onChange={(e) => setDiceAmount({ d6: Number(e.target.value) })}
+        />
         <button onClick={rollDice}>roll</button>
+      </div>
+      <div className="dice-text-container">Dice Text Container</div>
     </div>
-    <div className="dice-text-container">Dice Text Container</div>
-</div>
-  )
+  );
 }
