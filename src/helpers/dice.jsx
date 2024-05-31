@@ -15,3 +15,11 @@ export function rollDSix(diceToRoll) {
   console.log(results);
   return results;
 }
+
+// export function diceResultText(dArr) {
+//   return [...Array(dArr.length).keys()].map((key) => (
+//     <p key={key} >
+//       {key}
+//     </p>
+//   ));
+// }
