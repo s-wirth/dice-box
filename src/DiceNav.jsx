@@ -1,30 +1,29 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class DiceNav extends Component {
-    getRandomInt(min, max) {
-        const minCeiled = Math.ceil(min);
-        const maxFloored = Math.floor(max);
-        return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
-    }
+function getRandomInt(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+}
 
-    rollDSix(n) {
-        return this.getRandomInt(1,6)
-    }
+function rollDSix(n) {
+    return getRandomInt(1,6)
+}
 
-    rollDice = e => {
+
+export default function DiceNav() {
+    const rollDice = (e) => {
         e.preventDefault();
-        alert(this.rollDSix())
+        alert(rollDSix())
     }
-
-    render() {
-        return (
-            <div className='nav nav-roller'>
-                <h3>Dice Select</h3>
-                <div className="dice-btn-container">
-                    <button onClick={this.rollDice  }>roll</button>
-                </div>
-                <div className="dice-text-container">Dice Text Container</div>
-            </div>
-        )
-    }
+    
+  return (
+    <div className='nav nav-roller'>
+    <h3>Dice Select</h3>
+    <div className="dice-btn-container">
+        <button onClick={rollDice}>roll</button>
+    </div>
+    <div className="dice-text-container">Dice Text Container</div>
+</div>
+  )
 }
