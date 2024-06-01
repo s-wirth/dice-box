@@ -4,15 +4,13 @@ export function getRandomInt(min, max) {
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
 }
 
-export function rollDSix(diceToRoll) {
+export function rollDice(maxVal, diceToRoll) {
   let results = [];
-  console.log("diceToRoll", diceToRoll);
 
   for (let diceRolled = 0; diceRolled < diceToRoll; diceRolled++) {
-    results.push(getRandomInt(1, 6));
+    results.push(getRandomInt(1, maxVal));
   }
 
-  console.log(results);
   return results;
 }
 

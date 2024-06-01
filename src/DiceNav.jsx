@@ -1,24 +1,26 @@
 import React from "react";
 import { useState } from "react";
-import { rollDSix } from "./helpers/dice.jsx";
+import { rollDice } from "./helpers/dice.jsx";
+import { DiceSelectorBtn } from "./sub_comps/DiceSelectorBtn.jsx";
 
-export default function DiceNav({setResults}) {
-  const [diceAmount, setDiceAmount] = useState({
-    d6: 0,
-  });
-  const [rollResult, setRollResult] = useState({
-    d6: [],
-  });
+export default function DiceNav({diceResults,setResults}) {
 
-  const rollDice = (e) => {
-    e.preventDefault();
-    let results = [];
-    results = rollDSix(diceAmount.d6);
-    setRollResult({
-      d6: results,
-    });
-    setResults({'d6': results})
-  };
+  // const rollDice = (e) => {
+  //   e.preventDefault();
+  //   let results = [];
+  //   results = rollDSix(diceAmount.d6);
+  //   setResults({d6: results})
+  // };
+
+  const  onClick = (e) => {
+    rollDice
+  }
+
+  const rows = [];
+  for (const [key, value] of Object.entries(diceResults)) {
+    rows.push(<DiceSelectorBtn key dTitle={value.title} maxVal={value.maxVal} diceToRoll={value.diceToRoll} setResults />);
+  }
+
 
   return (
     <div className="nav nav-roller">
@@ -30,6 +32,7 @@ export default function DiceNav({setResults}) {
           type="number"
           value={diceAmount.d6}
           onChange={(e) => setDiceAmount({ d6: Number(e.target.value) })}
+          onChange={(e) => setResults({...diceResults, })}
         />
         <button onClick={rollDice}>roll</button>
       </div>
