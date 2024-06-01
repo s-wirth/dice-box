@@ -10,7 +10,7 @@ export function rollDice(maxVal, diceToRoll) {
   for (let diceRolled = 0; diceRolled < diceToRoll; diceRolled++) {
     results.push(getRandomInt(1, maxVal));
   }
-
+console.log('results', results)
   return results;
 }
 

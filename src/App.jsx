@@ -3,24 +3,18 @@ import { useState } from "react";
 import LogNav from "./LogNav";
 import DiceNav from "./DiceNav";
 import MainDiceBox from "./MainDiceBox";
+import { THROW_RESULT } from "./helpers/constants.jsx";
+import { DiceThrowContext } from "./helpers/context.jsx";
 
-  const DICE_DICT = {
-    'D2': {title: 'd2', maxVal: 2, diceToRoll: 0, rollResult: []},
-    'D4': {title: 'd4', maxVal: 4, diceToRoll: 0, rollResult: []},
-    'D6': {title: 'd6', maxVal: 6, diceToRoll: 0, rollResult: []},
-    'D8': {title: 'd8', maxVal: 8, diceToRoll: 0, rollResult: []},
-    'D10': {title: 'd10', maxVal: 10, diceToRoll: 0, rollResult: []},
-    'D12': {title: 'd12', maxVal: 12, diceToRoll: 0, rollResult: []},
-    'D20': {title: 'd20', maxVal: 20, diceToRoll: 0, rollResult: []},
-    'D100': {title: 'd100', maxVal: 100, diceToRoll: 0, rollResult: []},
-  }
 export default function App() {
-  const [diceResults, setDiceResults] = useState(DICE_DICT);
+  const [throwResult, setThrowResult] = useState({...THROW_RESULT})
   return (
-    <div className="app">
-      <DiceNav setResults={diceResults,setDiceResults} />
-      <MainDiceBox diceResults={diceResults} />
-      <LogNav />
-    </div>
+    <DiceThrowContext.Provider value={throwResult}>
+      <div className="app">
+        <DiceNav setResults={setThrowResult} />
+        <MainDiceBox />
+        <LogNav />
+      </div>
+    </DiceThrowContext.Provider>
   );
 }
