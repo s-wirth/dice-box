@@ -1,3 +1,3 @@
 import { createContext } from 'react';
-import {THROW_RESULT} from './constants'
-export const DiceThrowContext = createContext({...THROW_RESULT});
+import {DICE_CONTEXT} from './constants'
+export const DiceContext = createContext({...DICE_CONTEXT});
