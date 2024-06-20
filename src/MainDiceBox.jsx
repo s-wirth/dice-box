@@ -14,11 +14,7 @@ export default function MainDiceBox() {
           {console.log("diceThrowContext main bod", diceThrowContext)}
           {console.log("diceThrowContext['THROW_RESULT']", diceThrowContext['THROW_RESULT'])}
           {diceResultText(diceThrowContext['THROW_RESULT'])}
-          {/* {Object.entries(diceThrowContext['THROW_RESULT']).map(([key, value]) => (
-            <button key={key}>{value}</button>
-          ))} */}
         </div>
-        {/* {diceResultText(diceThrowContext)} */}
       </div>
     </div>
   );
