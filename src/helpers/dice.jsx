@@ -25,18 +25,23 @@ export function rollDice({ diceContext, setDiceContext }) {
   return;
 }
 
-export function diceResultText(tr) {
+export function diceResultText(throwResult) {
   let inf = [];
   Object.entries(DICE_KEYS).map(([key, v]) => {
-    if (tr[key]) {
-      tr[key].forEach(() => {
-        let sum = tr[key].reduce((a, b) => a + b, 0);
-        inf.push(
-          <p key={key}>
-            {key} | {tr[key]}, SUM: {sum}
-          </p>
-        );
+    console.log('key', key)
+    console.log('v', v)
+    console.log('throwResult', throwResult)
+    let sum = 0;
+    if (throwResult[key]) {
+      console.log(throwResult)
+      throwResult[key].forEach(() => {
+        sum = throwResult[key].reduce((a, b) => a + b, 0);
       });
+      inf.push(
+        <p key={key}>
+          {key} | {throwResult[key].join(', ')} | SUM: {sum}
+        </p>
+      );
     }
   });
   return inf;

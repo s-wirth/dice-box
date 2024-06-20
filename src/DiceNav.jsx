@@ -9,7 +9,6 @@ import { DICE_KEYS, THROW_RESULT, DICE_CONTEXT } from "./helpers/constants.jsx";
 export default function DiceNav({ setDiceContext }) {
   const [diceAmount, setDiceAmount] = useState(0);
   const diceContext = { ...DICE_CONTEXT };
-  console.log(diceContext)
 
   return (
     <div className="nav nav-roller">
