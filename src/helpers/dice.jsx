@@ -19,6 +19,7 @@ export function rollDice({ diceContext, setDiceContext }) {
         results.push(getRandomInt(1, maxVal));
       }
       diceContext["THROW_RESULT"][key] = results;
+      diceContext[key]["amount"] = 0;
     }
   });
   setDiceContext(diceContext);
@@ -28,20 +29,22 @@ export function rollDice({ diceContext, setDiceContext }) {
 export function diceResultText(throwResult) {
   let inf = [];
   Object.entries(DICE_KEYS).map(([key, v]) => {
-    console.log('key', key)
-    console.log('v', v)
-    console.log('throwResult', throwResult)
+    console.log("key", key);
+    console.log("v", v);
+    console.log("throwResult", throwResult);
     let sum = 0;
     if (throwResult[key]) {
-      console.log(throwResult)
+      console.log(throwResult);
       throwResult[key].forEach(() => {
         sum = throwResult[key].reduce((a, b) => a + b, 0);
       });
-      inf.push(
-        <p key={key}>
-          {key} | {throwResult[key].join(', ')} | SUM: {sum}
-        </p>
-      );
+      if (sum > 0) {
+        inf.push(
+          <p key={key}>
+            {key} | {throwResult[key].join(", ")} | SUM: {sum}
+          </p>
+        );
+      }
     }
   });
   return inf;
