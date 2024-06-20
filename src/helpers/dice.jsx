@@ -21,7 +21,6 @@ export function rollDice({ diceContext, setDiceContext }) {
       diceContext["THROW_RESULT"][key] = results;
     }
   });
-  console.log("diceContext fun end", diceContext);
   setDiceContext(diceContext);
   return;
 }
@@ -29,13 +28,11 @@ export function rollDice({ diceContext, setDiceContext }) {
 export function diceResultText(tr) {
   let inf = [];
   Object.entries(DICE_KEYS).map(([key, v]) => {
-    console.log('RESULT TXT TR',tr);
-    console.log('RESULT TXT TR K',tr[key]);
     if (tr[key]) {
       tr[key].forEach(() => {
         let sum = tr[key].reduce((a, b) => a + b, 0);
         inf.push(
-          <p>
+          <p key={key}>
             {key} | {tr[key]}, SUM: {sum}
           </p>
         );

@@ -5,6 +5,7 @@ export default function DiceSelectorBtn({diceContext, setDiceContext}) {
   let btns = []
   Object.entries(DICE_KEYS).map(([key, v]) => {
     console.log('key', key)
+    console.log('diceContext', diceContext)
     btns.push(
       <div className="dice-btn-container" key={key}>
         <p>{key}</p>

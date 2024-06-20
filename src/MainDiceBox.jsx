@@ -11,8 +11,6 @@ export default function MainDiceBox() {
       <div className="dice-result">
         Dice Rolled:
         <div>
-          {console.log("diceThrowContext main bod", diceThrowContext)}
-          {console.log("diceThrowContext['THROW_RESULT']", diceThrowContext['THROW_RESULT'])}
           {diceResultText(diceThrowContext['THROW_RESULT'])}
         </div>
       </div>
