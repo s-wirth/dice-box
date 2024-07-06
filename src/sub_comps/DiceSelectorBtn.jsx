@@ -9,6 +9,7 @@ export default function DiceSelectorBtn({diceContext, setDiceContext}) {
         <p>{key}</p>
         <input
           type="number"
+          min='0'
           value={(diceContext[key] ? diceContext[key]['amount'] : 0)}
           onChange={(e) => {
             diceContext[key]['amount'] = Number(e.target.value);

@@ -3,7 +3,11 @@ import { DICE_KEYS, THROW_RESULT } from "./constants.jsx";
 export function getRandomInt(min, max) {
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+  console.log('minCeiled', minCeiled)
+  console.log('maxFloored', maxFloored)
+  let res = Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+  console.log(res)
+  return res
 }
 
 export function rollDice({ diceContext, setDiceContext }) {
@@ -17,6 +21,7 @@ export function rollDice({ diceContext, setDiceContext }) {
       let results = [];
       for (let diceRolled = 0; diceRolled < diceToRoll; diceRolled++) {
         results.push(getRandomInt(1, maxVal));
+        console.log('maxVal', maxVal)
       }
       diceContext["THROW_RESULT"][key] = results;
       diceContext[key]["amount"] = 0;
@@ -26,15 +31,29 @@ export function rollDice({ diceContext, setDiceContext }) {
   return;
 }
 
+export function diceInRoll({ diceContext, setDiceContext }) {
+  let fullRollTxt = ''
+  Object.entries(DICE_KEYS).map(([key, v]) => {
+    let amount = diceContext[key]["amount"];
+    let name = diceContext[key]["name"];
+    if (amount > 0) {
+      if (fullRollTxt) {
+        fullRollTxt = fullRollTxt + '+' + amount.toString() + name
+      } else {
+        fullRollTxt = fullRollTxt + amount.toString() + name
+      }
+      
+    }
+  });
+  diceContext['DICE_TXT'] = fullRollTxt
+  return fullRollTxt
+}
+
 export function diceResultText(throwResult) {
   let inf = [];
   Object.entries(DICE_KEYS).map(([key, v]) => {
-    console.log("key", key);
-    console.log("v", v);
-    console.log("throwResult", throwResult);
     let sum = 0;
     if (throwResult[key]) {
-      console.log(throwResult);
       throwResult[key].forEach(() => {
         sum = throwResult[key].reduce((a, b) => a + b, 0);
       });

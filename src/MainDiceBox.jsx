@@ -4,14 +4,14 @@ import { DiceContext } from "./helpers/context.jsx";
 import { diceResultText } from "./helpers/dice.jsx";
 
 export default function MainDiceBox() {
-  const diceThrowContext = useContext(DiceContext);
+  const diceContext = useContext(DiceContext);
   return (
     <div className="main-dice-box">
       <h2>Dice Box</h2>
       <div className="dice-result">
         Dice Rolled:
         <div>
-          {diceResultText(diceThrowContext['THROW_RESULT'])}
+          {diceResultText(diceContext['THROW_RESULT'])}
         </div>
       </div>
     </div>
