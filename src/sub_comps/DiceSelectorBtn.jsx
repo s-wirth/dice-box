@@ -5,9 +5,10 @@ export default function DiceSelectorBtn({diceContext, setDiceContext}) {
   let btns = []
   Object.entries(DICE_KEYS).map(([key, v]) => {
     btns.push(
-      <div className="dice-btn-container" key={key}>
-        <p>{key}</p>
+      <div className="dice-element" key={key}>
+        <span className="dice-element-name">{key}</span>
         <input
+          className="dice-element-input"
           type="number"
           min='0'
           value={(diceContext[key] ? diceContext[key]['amount'] : 0)}

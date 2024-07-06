@@ -1,13 +1,17 @@
 /* --- ** general ** --- */
-body,html, #root {
-  font: 1.2rem "Fira Sans", sans-serif;
+body,
+html,
+#root {
+  font: 1.1rem "Fira Sans", sans-serif;
   position: fixed;
   overflow-y: scroll;
   padding: 0;
   margin: 0;
 }
 
-body, #root, .app {
+body,
+#root,
+.app {
   width: 100%;
   height: 100%;
 }
@@ -22,46 +26,110 @@ body, #root, .app {
 
 /* --- ** dice-box ** --- */
 
-.main-dice-box, .nav {
+.main-dice-box,
+.nav {
   height: 100%;
 }
 
 .main-dice-box {
   flex: 3 2 auto;
   background-color: #c9cdd1;
+  /* temp */
+  align-content: center;
+  text-align: center;
 }
 
 /* --- ** nav general ** --- */
 
 .nav {
-  flex: 1 1 auto;
-  background-color: #a3a8ad;
+  flex: 0.5 1 auto;
+  background-color: #40455d;
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: center;
 }
 
+.nav-heading {
+  color: #e3e1ee;
+  margin: 0.1rem;
+}
 /* --- ** dice roller nav ** --- */
 
 .nav-roller {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.dice-btn-container {
-  background-color: blue;
-  flex: 3 2 auto;
-
-  p {
-    padding: 0;
-    margin: 0;
-    font-size: .9rem;
-  }
+.nav-roller-dic-txt {
+  width: 200px;
+  height: 30px;
+  font-size: 1rem;
+  color: #e3e1ee;
+  text-align: center;
 }
 
-.dice-text-container {
-  background: pink;
-  flex: 3 2 auto;
+/* --- ** dice btn ** --- */
+
+.dice-element {
+  text-align: center;
+  width: 200px;
+  background: #8a8ea3;
+  padding: 4px;
+  margin: 0.5rem;
+  border-radius: 15px;
 }
 
-/* --- ** log nav ** --- */
+.dice-element-name {
+  margin-right: 0.5rem;
+}
+.dice-element-input {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+
+/* CSS */
+.nav-roller-roll-btn {
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 200px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+}
+
+.nav-roller-roll-btn:hover,
+.nav-roller-roll-btn:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.nav-roller-roll-btn:hover {
+  transform: translateY(-1px);
+}
+
+.nav-roller-roll-btn:active {
+  background-color: #f0f0f1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}

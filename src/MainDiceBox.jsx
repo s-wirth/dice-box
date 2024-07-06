@@ -7,7 +7,7 @@ export default function MainDiceBox() {
   const diceContext = useContext(DiceContext);
   return (
     <div className="main-dice-box">
-      <h2>Dice Box</h2>
+      {/* <h2>Dice Box</h2> */}
       <div className="dice-result">
         Dice Rolled:
         <div>

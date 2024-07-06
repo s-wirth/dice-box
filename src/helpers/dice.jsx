@@ -31,7 +31,7 @@ export function rollDice({ diceContext, setDiceContext }) {
   return;
 }
 
-export function diceInRoll({ diceContext, setDiceContext }) {
+export function diceRollToTxt(diceContext ) {
   let fullRollTxt = ''
   Object.entries(DICE_KEYS).map(([key, v]) => {
     let amount = diceContext[key]["amount"];
@@ -45,7 +45,6 @@ export function diceInRoll({ diceContext, setDiceContext }) {
       
     }
   });
-  diceContext['DICE_TXT'] = fullRollTxt
   return fullRollTxt
 }
 
